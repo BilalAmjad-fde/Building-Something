@@ -1,0 +1,23 @@
+# API server and ASGI runtime
+fastapi
+uvicorn[standard]
+
+# Request models, settings, and environment-variable loading
+pydantic
+pydantic-settings
+python-dotenv
+
+# LLM application building blocks, OpenAI integration, and agent workflows
+langchain
+langchain-community
+langchain-openai
+langgraph
+
+# PostgreSQL vector-store integration and psycopg 3 driver
+langchain-postgres
+psycopg[binary]
+
+# PDF ingestion, file uploads, and async HTTP requests
+pypdf
+python-multipart
+httpx
