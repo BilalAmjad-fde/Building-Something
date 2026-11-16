@@ -1,23 +1,28 @@
 # API server and ASGI runtime
-fastapi
-uvicorn[standard]
+fastapi>=0.162.4
+uvicorn[standard]>=0.54.0
 
 # Request models, settings, and environment-variable loading
-pydantic
-pydantic-settings
-python-dotenv
+pydantic>=2.14.3
+pydantic-settings>=2.16.2
+python-dotenv>=1.2.4
 
 # LLM application building blocks, OpenAI integration, and agent workflows
-langchain
-langchain-community
-langchain-openai
-langgraph
+langchain>=1.4.9
+langchain-community>=0.4.2
+langchain-openai>=1.7.4
+langgraph>=1.2.20
 
 # PostgreSQL vector-store integration and psycopg 3 driver
-langchain-postgres
-psycopg[binary]
+langchain-postgres>=0.0.19
+psycopg[binary]>=3.3.8
+SQLAlchemy>=2.0.36
+alembic>=1.14.0
+
+# Scheduled, retryable background job polling
+celery[redis]>=5.4.0
 
 # PDF ingestion, file uploads, and async HTTP requests
-pypdf
-python-multipart
-httpx
+pypdf>=7.0.1
+python-multipart>=0.0.33
+httpx>=0.28.1
