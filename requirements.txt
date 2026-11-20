@@ -26,3 +26,6 @@ celery[redis]>=5.4.0
 pypdf>=7.0.1
 python-multipart>=0.0.33
 httpx>=0.28.1
+
+# Job listing embeddings
+voyageai>=0.3.4

@@ -4,6 +4,8 @@ from functools import lru_cache
 class Settings(BaseSettings):
     gemini_api_key:str
     gemini_api_model:str
+    voyageai_api_key: str
+    voyageai_model: str = "voyage-4"
 
     database_url:str
     supabase_url:str
