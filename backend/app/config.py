@@ -1,5 +1,7 @@
-from pydantic_settings import BaseSettings, SettingsConfigDict
 from functools import lru_cache
+
+from pydantic import Field
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     gemini_api_key:str
@@ -15,8 +17,10 @@ class Settings(BaseSettings):
     adzuna_id:str
     adzuna_api_key:str
     adzuna_base_url:str="https://api.adzuna.com/v1/api/jobs"
+    adzuna_country_code: str = "us"
 
-    fetch_interval_hour:int = 6
+    fetch_interval_hour: int = Field(default=6, gt=0)
+    celery_broker_url: str = "redis://localhost:6379/0"
 
     model_config = SettingsConfigDict(
         env_file=".env",
@@ -25,8 +29,9 @@ class Settings(BaseSettings):
         extra="ignore"
     )
 
+
 @lru_cache
-def get_setting()->Settings:
+def get_setting() -> Settings:
     return Settings()
 
 

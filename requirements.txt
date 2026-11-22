@@ -29,3 +29,6 @@ httpx>=0.28.1
 
 # Job listing embeddings
 voyageai>=0.3.4
+
+# HTML parsing for job sanitization
+beautifulsoup4>=4.13.4

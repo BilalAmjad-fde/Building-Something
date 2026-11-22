@@ -1,8 +1,14 @@
-from supabase import client,create_client
 from functools import lru_cache
-from config import get_setting
 
-setting = get_setting()
+from supabase import Client, create_client
 
-def get_supabase()->client:
-    return create_client(supabase_key=setting.supabase_secret_key,supabase_url=setting.supabase_url)
+from backend.app.config import get_setting
+
+
+@lru_cache
+def get_supabase() -> Client:
+    setting = get_setting()
+    return create_client(
+        supabase_url=setting.supabase_url,
+        supabase_key=setting.supabase_secret_key,
+    )

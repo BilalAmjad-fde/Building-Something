@@ -24,4 +24,6 @@ dependencies = [
     "uvicorn[standard]>=0.54.0",
     "supabase>=2.34.1",
     "voyageai>=0.3.4",
+    "beautifulsoup4>=4.13.4",
+    "bs4>=0.0.2",
 ]
