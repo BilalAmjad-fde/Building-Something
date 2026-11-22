@@ -1,5 +1,6 @@
 # Python-generated files
 __pycache__/
+*.pyc
 *.py[oc]
 build/
 dist/
@@ -9,3 +10,5 @@ wheels/
 # Virtual environments
 .venv
 .env
+backend/testing/sample/
+*.pdf
