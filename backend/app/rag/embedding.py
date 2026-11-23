@@ -1,13 +1,13 @@
-import voyageai
+import mistralai
 
 from backend.app.config import get_setting
 
 
 def _embed_text(text: str) -> list[float]:
     setting = get_setting()
-    response = voyageai.Client(api_key=setting.voyageai_api_key).embed(
+    response = mistralai.Client(api_key=setting.mistral_api_key).embed(
         [text],
-        model=setting.voyageai_model,
+        model=setting.mistral_model,
         input_type="document",
     )
     return response.embeddings[0]

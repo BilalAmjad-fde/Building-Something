@@ -8,7 +8,7 @@ from pathlib import Path
 supabase = get_supabase()
 # apna supabase client yahan import karo
 
-path = Path(r"D:\Building Something\backend\testing\sample\myCV.pdf")
+path = Path(r"D:\Building Something\backend\testing\sample\zaintestcv.pdf")
 raw_text = PdfParser.extract_text(path)
 print("TEXT:", raw_text[:300])                  # 1. text sahi nikla?
 
