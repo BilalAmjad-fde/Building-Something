@@ -1,16 +1,22 @@
-import mistralai
+from functools import lru_cache
 
+from mistralai.client import Mistral
 from backend.app.config import get_setting
+
+
+@lru_cache(maxsize=1)
+def _get_client() -> Mistral:
+    setting = get_setting()
+    return Mistral(api_key=setting.mistral_api_key)
 
 
 def _embed_text(text: str) -> list[float]:
     setting = get_setting()
-    response = mistralai.Client(api_key=setting.mistral_api_key).embed(
-        [text],
+    response = _get_client().embeddings.create(
         model=setting.mistral_model,
-        input_type="document",
+        inputs=[text],
     )
-    return response.embeddings[0]
+    return response.data[0].embedding
 
 
 def embed_job_listing(
@@ -28,5 +34,5 @@ def embed_job_listing(
 
 
 def embed_cv_text(cv_text: str) -> list[float]:
-    """Embed the supplied CV text with VoyageAI."""
+    """Embed the supplied CV text with Mistral."""
     return _embed_text(cv_text)
