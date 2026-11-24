@@ -1,6 +1,6 @@
 from functools import lru_cache
 
-from mistralai.client import Mistral
+from mistralai.client import Mistral    
 from backend.app.config import get_setting
 
 

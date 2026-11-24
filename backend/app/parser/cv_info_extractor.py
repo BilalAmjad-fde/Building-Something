@@ -1,6 +1,7 @@
 from functools import lru_cache
 from backend.app.config import get_setting
 from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_mistralai import ChatMistralAI
 
 from backend.app.models.cv import CVInfo
 
@@ -33,8 +34,16 @@ Rules:
 @lru_cache(maxsize=1)
 def _get_llm():
     # Reads GOOGLE_API_KEY from the environment.
-    llm = ChatGoogleGenerativeAI(api_key = setting.gemini_api_key,model=setting.gemini_api_model, temperature=0)
-    return llm.with_structured_output(CVInfo)
+    primary = ChatGoogleGenerativeAI(api_key = setting.gemini_api_key,
+                                    model=setting.gemini_api_model, temperature=0,max_retries=2).with_structured_output(CVInfo)
+
+    gemini_backup = ChatGoogleGenerativeAI(api_key = setting.gemini_api_key, model="gemini-2.5-flash",
+                                           temperature=0,max_retries=2).with_structured_output(CVInfo)
+
+    mistral_backup = ChatMistralAI(model_name="mistral-small-latest",temperature=0
+                                   ,api_key=setting.mistral_api_key).with_structured_output(CVInfo)
+    return primary.with_fallbacks([gemini_backup,mistral_backup])
+    
 
 
 def extract_cv_info(raw_text: str) -> CVInfo:

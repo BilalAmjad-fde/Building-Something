@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Find job opportunities that fit your experience and goals."
+    />
+    <title>Northstar — Find your next role</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Main sidebar">
+        <a class="brand" href="#" aria-label="Northstar home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none">
+              <path d="M16 3.5 19.1 13l9.4 3-9.4 3-3.1 9.5L12.9 19l-9.4-3 9.4-3L16 3.5Z" fill="currentColor" />
+              <circle cx="16" cy="16" r="2.2" fill="#173D33" />
+            </svg>
+          </span>
+          <span>northstar</span>
+        </a>
+
+        <div class="workspace-label">WORKSPACE</div>
+        <nav class="side-nav">
+          <a class="nav-link is-active" href="#overview" aria-current="page">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5" /><rect x="13.5" y="3.5" width="7" height="7" rx="1.5" /><rect x="3.5" y="13.5" width="7" height="7" rx="1.5" /><rect x="13.5" y="13.5" width="7" height="7" rx="1.5" /></svg>
+            <span>Overview</span>
+          </a>
+          <a class="nav-link" href="#resume">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.75h7l4 4v12.5H7a2 2 0 0 1-2-2v-12.5a2 2 0 0 1 2-2Z" /><path d="M14 4v4h4M9 12h6M9 16h6" /></svg>
+            <span>My resume</span>
+          </a>
+          <a class="nav-link" href="#preferences">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4 4M8.5 11h5M11 8.5v5" /></svg>
+            <span>Job search</span>
+          </a>
+          <a class="nav-link" href="#matches">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7.5-4.4-7.5-10a4.25 4.25 0 0 1 7.5-2.7A4.25 4.25 0 0 1 19.5 10c0 5.6-7.5 10-7.5 10Z" /></svg>
+            <span>Matches</span>
+            <span class="nav-count">0</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="sidebar-tip">
+            <span class="tip-icon" aria-hidden="true">✦</span>
+            <p class="tip-title">A little progress goes a long way.</p>
+            <p class="tip-copy">Add your resume to get recommendations shaped around you.</p>
+            <a href="#resume">Get started <span aria-hidden="true">↗</span></a>
+          </div>
+          <button class="profile-button" type="button" aria-label="Your profile">
+            <span class="avatar">JD</span>
+            <span class="profile-copy"><strong>Job seeker</strong><small>Personal workspace</small></span>
+            <span class="profile-menu" aria-hidden="true">···</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="main-content" id="overview">
+        <header class="topbar">
+          <div class="breadcrumb"><span>Workspace</span><span class="crumb-slash">/</span><strong>Overview</strong></div>
+          <div class="topbar-right">
+            <span class="privacy-note"><span class="privacy-dot"></span>Your search is private</span>
+            <button class="help-button" type="button" aria-label="Help">?</button>
+          </div>
+        </header>
+
+        <div class="page-content">
+          <section class="welcome-row">
+            <div>
+              <div class="eyebrow"><span class="eyebrow-star">✳</span> YOUR NEXT CHAPTER STARTS HERE</div>
+              <h1>Find work that <span>fits you.</span></h1>
+              <p class="welcome-copy">Bring your experience and what you're looking for. We'll help you find a thoughtful match.</p>
+            </div>
+            <div class="date-pill"><span class="calendar-icon" aria-hidden="true">▦</span> YOUR JOB SEARCH, SIMPLIFIED</div>
+          </section>
+
+          <section class="setup-card" aria-labelledby="setup-title">
+            <div class="section-heading">
+              <div class="step-badge">01</div>
+              <div>
+                <h2 id="setup-title">Let's get to know what you're looking for</h2>
+                <p>Start with your resume and a few details about your next role.</p>
+              </div>
+            </div>
+
+            <form id="search-form" novalidate>
+              <div class="form-grid">
+                <section class="field-section" id="resume">
+                  <div class="field-heading">
+                    <label for="resume-file">Your resume</label>
+                    <span class="optional-tag">PDF ONLY</span>
+                  </div>
+                  <label class="upload-box" for="resume-file" id="drop-zone">
+                    <input id="resume-file" name="resume" type="file" accept=".pdf,application/pdf" />
+                    <span class="upload-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none"><path d="M12 15V4m0 0L8 8m4-4 4 4M5 14v4.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V14" /></svg>
+                    </span>
+                    <span class="upload-title" id="upload-title">Drop your resume here</span>
+                    <span class="upload-subtitle" id="upload-subtitle">or <span class="browse-link">browse files</span> from your device</span>
+                    <span class="upload-meta">PDF · up to 10 MB</span>
+                  </label>
+                  <p class="field-hint"><span class="lock-icon" aria-hidden="true">♧</span> Your resume stays yours. It's only used to personalize your search.</p>
+                  <p class="field-error" id="file-error" role="alert"></p>
+                </section>
+
+                <section class="field-section" id="preferences">
+                  <div class="field-heading">
+                    <label for="job-query">What kind of role are you after?</label>
+                    <span class="optional-tag">YOUR WORDS</span>
+                  </div>
+                  <div class="query-box">
+                    <div class="query-label"><span class="query-sparkle" aria-hidden="true">✳</span> Tell us about your next move</div>
+                    <textarea id="job-query" name="query" rows="4" maxlength="500" placeholder="For example: Product designer roles at mission-driven companies, ideally remote or in New York..."></textarea>
+                    <div class="query-footer">
+                      <span>Role, location, work style — anything that matters to you.</span>
+                      <span id="char-count">0 / 500</span>
+                    </div>
+                  </div>
+                  <div class="suggestions" aria-label="Suggested searches">
+                    <span>TRY:</span>
+                    <button class="suggestion-chip" type="button">Remote</button>
+                    <button class="suggestion-chip" type="button">Product design</button>
+                    <button class="suggestion-chip" type="button">Entry level</button>
+                  </div>
+                  <p class="field-error" id="query-error" role="alert"></p>
+                </section>
+              </div>
+
+              <div class="form-footer">
+                <div class="secure-note"><span aria-hidden="true">✦</span> No applications are sent without your say-so.</div>
+                <button class="submit-button" type="submit">
+                  <span>Preview my search</span>
+                  <span class="button-arrow" aria-hidden="true">↗</span>
+                </button>
+              </div>
+            </form>
+          </section>
+
+          <section class="bottom-grid">
+            <article class="matches-card" id="matches">
+              <div class="matches-card-top">
+                <div>
+                  <div class="small-overline">YOUR DISCOVERY SPACE</div>
+                  <h2>Your matches will live here.</h2>
+                  <p>Once your search is set up, relevant opportunities will have a home right here.</p>
+                </div>
+                <div class="match-illustration" aria-hidden="true">
+                  <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+                  <span class="orbit-star">✦</span><span class="orbit-dot"></span>
+                  <span class="orbit-core">N</span>
+                </div>
+              </div>
+              <div class="match-stats">
+                <div><strong>—</strong><span>Potential matches</span></div>
+                <div><strong>—</strong><span>Search status</span></div>
+                <div><strong>—</strong><span>Last updated</span></div>
+              </div>
+            </article>
+            <aside class="note-card">
+              <div class="note-icon" aria-hidden="true">✳</div>
+              <div class="small-overline">A GOOD TO KNOW</div>
+              <h3>Better details, better matches.</h3>
+              <p>A little context goes a long way. Mention what you enjoy doing, not just a job title.</p>
+              <span class="note-decoration" aria-hidden="true">✳</span>
+            </aside>
+          </section>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
